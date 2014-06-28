@@ -1,0 +1,30 @@
+{% extends "interface/subbase.html" %}
+
+{% block body %}
+    {% if stubs %}
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th>View</th>
+                <th>Type</th>
+                <th>Name</th>
+                <th>Comments</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for stub in stubs %}
+                <tr>
+                    <td><a class="btn btn-info" href="{{ url_for(".detail", id=stub._id) }}"><span class="glyphicon glyphicon-list"</a></td>
+                    <td>{{ stub.type }}</td>
+                    <td>{{ stub.name }}</td>
+                    <td>
+                        {{ stub.comments }}
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        No stubs yet.
+    {% endif %}
+{% endblock %}

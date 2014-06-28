@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block title %}Interfaces{% endblock %}
+
+{% block left_menu %}
+    <li{% if g.nav2 == 'index' %} class="active"{% endif %}><a href="{{ url_for('.index') }}">Summary</a></li>
+    <li><strong>Stubs</strong></li>
+    <li{% if g.nav2 == 'modules' %} class="active"{% endif %}><a href="{{ url_for('.modules') }}">Modules</a></li>
+    <li{% if g.nav2 == 'classes' %} class="active"{% endif %}><a href="{{ url_for('.classes') }}">Classes</a></li>
+    <li{% if g.nav2 == 'functions' %} class="active"{% endif %}><a href="{{ url_for('.functions') }}">Functions</a></li>
+{% endblock %}
+
+{% block body %}
+{% endblock %}

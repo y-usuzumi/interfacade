@@ -1,0 +1,22 @@
+{% extends "interface/subbase.html" %}
+
+{% block body %}
+    <button class="btn btn-success" onclick="generateCode({{ stub.id }})"><span class="glyphicon glyphicon-play"></span> Gen</button>
+    <br><br>
+    {% for prop, val in stub.items() %}
+        <div class="input-group">
+            <span class="input-group-addon">{{ prop }}</span>
+            <span type="text" class="form-control">{{ val }}</span>
+        </div>
+        <br>
+    {% endfor %}
+{% endblock %}
+
+{% block script %}
+    <script src="{{ url_for("static", filename="js/interface/detail.js") }}"></script>
+    <script type="text/javascript">
+        function generateCode(id) {
+            ifutil.popUp("{{ url_for('.generate_code', id=stub._id) }}", '');
+        }
+    </script>
+{% endblock %}

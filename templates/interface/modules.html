@@ -1,0 +1,14 @@
+{% extends "interface/subbase.html" %}
+
+{% block body %}
+    <form action="{{ url_for(".generate_code") }}" method="post">
+        <label for="interface_type">Stub type</label>
+        <select id="interface_type" name="interface_type">
+            <option value="module">Module</option>
+            <option value="class">Class</option>
+            <option value="function">Function</option>
+            <option value="iterator">Iterator</option>
+            <option value="decorator">Decorator</option>
+        </select>
+    </form>
+{% endblock %}
